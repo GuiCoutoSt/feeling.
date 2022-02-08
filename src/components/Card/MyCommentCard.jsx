@@ -1,5 +1,4 @@
 import { Flex, Text, Box, Link, Button } from "@chakra-ui/react";
-import { MdModeEdit, MdRestoreFromTrash } from "react-icons/md";
 import { useComments } from "../../provider/CommentsProvider";
 import { useDisclosure } from "@chakra-ui/react";
 import { EditComment } from "../../components/Modal/EditComment";
@@ -18,9 +17,9 @@ export const MyCommentCard = ({ phrase, date, commentId, onOpenPhrase }) => {
   return (
     <FlexMotion
       animate={controls}
+      flexDirection={["column", "row"]}
       w="90vw"
       maxW="700px"
-      minW="320px"
       m="5px 0"
       bg="white"
       padding="10px 20px"
@@ -72,7 +71,7 @@ export const MyCommentCard = ({ phrase, date, commentId, onOpenPhrase }) => {
           <Button
             onClick={onOpen}
             h="30px"
-            mb="5px"
+            m="5px 0"
             fontSize="xs"
             color="black"
             bgColor="white"
