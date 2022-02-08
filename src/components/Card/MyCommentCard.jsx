@@ -30,9 +30,9 @@ export const MyCommentCard = ({ phrase, date, commentId, onOpenPhrase }) => {
       color="orange.500"
       justifyContent="space-between"
       _hover={{
-        borderTop: "solid 1px",
-        borderRight: "solid 1px",
-        borderLeft: "solid 2px",
+        borderTop: "solid 2px",
+        borderRight: "solid 2px",
+        borderLeft: "solid 3px",
         borderBottom: "solid 4px",
         transition: "0.2s",
         borderColor: "black",
