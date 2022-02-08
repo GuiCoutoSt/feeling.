@@ -24,18 +24,16 @@ export const MyCommentCard = ({ phrase, date, commentId, onOpenPhrase }) => {
       bg="white"
       padding="10px 20px"
       borderRadius="15px"
-      border="solid 4px"
-      borderColor="transparent"
+      border="solid 2px"
+      borderColor="black"
       cursor="pointer"
       color="orange.500"
       justifyContent="space-between"
       _hover={{
-        borderTop: "solid 1px",
-        borderRight: "solid 1px",
-        borderLeft: "solid 2px",
-        borderBottom: "solid 4px",
         transition: "0.2s",
         borderColor: "black",
+        transform: "translate(3px, -3px)",
+        boxShadow: "-5px 5px black",
       }}
       css={{
         "&:not(:hover)": {
