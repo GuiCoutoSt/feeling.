@@ -6,21 +6,21 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  ModalCloseButton,
   Text,
   Textarea,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useComments } from "../../provider/CommentsProvider"
+import { useComments } from "../../provider/CommentsProvider";
 
 export const EditComment = ({ isOpen, onClose, comment, commentId }) => {
-  
-  const [editedComment, setEditedComment] = useState({commentText: ""})
-  const {UpdateComment} = useComments()
+  const [editedComment, setEditedComment] = useState({ commentText: "" });
+  const { UpdateComment } = useComments();
 
   return (
     <Modal isOpen={isOpen}>
       <ModalOverlay />
-      <ModalContent h="auto" w={["250px", "250px", "500px", "700px"]}>
+      <ModalContent h="auto" w={["300px", "300px", "500px", "auto"]}>
         <ModalHeader
           display="flex"
           justifyContent="space-between"
@@ -31,14 +31,7 @@ export const EditComment = ({ isOpen, onClose, comment, commentId }) => {
           borderTopRadius="lg"
         >
           <Text>Editar Comentário</Text>
-          <Text
-            as="button"
-            onClick={onClose}
-            fontWeight="bold"
-            color={["orange.500"]}
-          >
-            X
-          </Text>
+          <ModalCloseButton onClick={onClose} color={["orange.500"]} />
         </ModalHeader>
         <ModalBody
           minH="200px"
@@ -52,12 +45,15 @@ export const EditComment = ({ isOpen, onClose, comment, commentId }) => {
             Mude suas palavras:
           </Text>
           <Textarea
+            resize="none"
             textAlign="left"
             placeholder="Escreva aqui"
             _placeholder={{ color: "orange.500" }}
             bg="yellow.200"
             _focus={{ border: "2px", borderColor: "orange.500" }}
-            onChange={(event) => setEditedComment({commentText: event.target.value})}
+            onChange={(event) =>
+              setEditedComment({ commentText: event.target.value })
+            }
             defaultValue={comment}
             minH={150}
           />
@@ -69,7 +65,9 @@ export const EditComment = ({ isOpen, onClose, comment, commentId }) => {
             h="30px"
             w="200px"
             borderRadius="30px"
-            onClick={() => {UpdateComment(commentId, editedComment, onClose)}}
+            onClick={() => {
+              UpdateComment(commentId, editedComment, onClose);
+            }}
           >
             Postar
           </Button>
